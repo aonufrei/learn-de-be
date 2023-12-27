@@ -7,6 +7,7 @@ import (
 	"github.com/aonufrei/learn-de-be/internal/data"
 	"github.com/aonufrei/learn-de-be/internal/handlers"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 type ErrorResponse struct {
@@ -28,6 +29,12 @@ func main() {
 
 	log.Println("Running the application")
 	app := fiber.New()
+	app.Use(cors.New(cors.Config{
+		AllowHeaders:     "Origin,Content-Type,Accept,Content-Length,Accept-Language,Accept-Encoding,Connection,Access-Control-Allow-Origin",
+		AllowOrigins:     "*",
+		AllowCredentials: true,
+		AllowMethods:     "GET,POST,HEAD,PUT,DELETE,PATCH,OPTIONS",
+	}))
 	app.Get("/health", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
 	})

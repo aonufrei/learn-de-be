@@ -1,16 +1,16 @@
 package data
 
 type WordTopic struct {
-	ID   int
-	Name string
+	ID   int    `json:"id"`
+	Name string `json:"name"`
 }
 
 type GermanWord struct {
-	ID          int
-	TopicId     int
-	Article     int
-	Word        string
-	Translation string
+	ID          int    `json:"id"`
+	TopicId     int    `json:"topic_id"`
+	Article     int    `json:"article"`
+	Word        string `json:"word"`
+	Translation string `json:"translation"`
 }
 
 var articles []string = []string{"der", "die", "das"}
