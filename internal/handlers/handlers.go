@@ -7,7 +7,7 @@ import (
 
 func AddRoutes(app *fiber.App, repo *data.Repository) {
 	app.Get("/topics", GetAllTopicsHandler(repo))
-	app.Get("/topics/:topicId/words", GetWordsByTopicHandler(repo))
+	app.Get("/topic/:topicId/words", GetWordsByTopicHandler(repo))
 }
 
 type errorResponse struct {
